@@ -1,0 +1,44 @@
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+default-members = ["crates/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3"
+publish = false
+
+[workspace.dependencies]
+naga-model = { path = "crates/model" }
+naga-package = { path = "crates/package" }
+naga-abi = { path = "crates/abi" }
+naga-ipc = { path = "crates/ipc" }
+naga-sdk = { path = "crates/sdk" }
+naga-core = { path = "crates/core" }
+naga-native = { path = "crates/native" }
+
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "1.2"
+semver = { version = "1.0", features = ["serde"] }
+thiserror = "2.0"
+sha2 = "0.11"
+hex = "0.4"
+ed25519-dalek = "3.0"
+getrandom = "0.4"
+zip = { version = "9.1.2", default-features = false, features = ["deflate-flate2"] }
+flate2 = { version = "1.1", default-features = false, features = ["rust_backend"] }
+libloading = "0.9"
+clap = { version = "4.6", features = ["derive"] }
+ctrlc = "3.5"
+
+[workspace.lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+
+[workspace.lints.clippy]
+undocumented_unsafe_blocks = "allow"
+missing_safety_doc = "allow"
+
+[profile.dev.package.sha2]
+opt-level = 3

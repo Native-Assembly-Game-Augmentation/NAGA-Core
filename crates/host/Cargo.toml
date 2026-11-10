@@ -1,0 +1,18 @@
+[package]
+name = "naga-host"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+naga-abi.workspace = true
+naga-ipc.workspace = true
+naga-model.workspace = true
+naga-package.workspace = true
+naga-native.workspace = true
+serde_json.workspace = true
+semver.workspace = true
+
+[lints]
+workspace = true
